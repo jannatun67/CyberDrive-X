@@ -46,7 +46,7 @@ export default function S1_Hero({ isEngineOn, speed, onStartEngine }: HeroProps)
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-30"
+        className="absolute inset-0 w-full h-full object-cover opacity-10"
       >
         <source src={HERO_VIDEO_URL} type="video/mp4" />
       </video>
@@ -56,7 +56,7 @@ export default function S1_Hero({ isEngineOn, speed, onStartEngine }: HeroProps)
       <div className="absolute inset-0 bg-gradient-to-r from-dark-900/80 via-transparent to-dark-900/60" />
 
       {/* ── Content Grid ── */}
-      <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-center gap-8 pt-20">
+      <div className="relative z-10 h-full flex flex-col lg:flex-row items-center justify-center gap-8 pt-20">
 
         {/* ── Left: Text Content ── */}
         <motion.div
@@ -73,7 +73,7 @@ export default function S1_Hero({ isEngineOn, speed, onStartEngine }: HeroProps)
             className="glass px-4 py-2 mb-6 inline-flex items-center gap-2"
           >
             <span className="text-sm">⚡</span>
-            <span className="font-orbitron text-xs tracking-widest text-neon-blue uppercase">
+            <span className="font-orbitron text-[18px] tracking-widest text-neon-blue uppercase">
               Next-Gen Racing Experience
             </span>
           </motion.div>
@@ -95,7 +95,7 @@ export default function S1_Hero({ isEngineOn, speed, onStartEngine }: HeroProps)
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className="text-white/60 text-base sm:text-lg max-w-lg mb-8 leading-relaxed"
+            className="text-white/60 text-[17px] sm:text-lg max-w-lg mb-8 leading-relaxed"
           >
             Immerse yourself in a breathtaking 3D racing showcase.
             Push the limits of speed with stunning visuals and real-time controls.
@@ -139,7 +139,7 @@ export default function S1_Hero({ isEngineOn, speed, onStartEngine }: HeroProps)
                 <div className="font-orbitron text-xl sm:text-2xl font-bold text-neon-blue text-glow-blue">
                   {stat.value}
                 </div>
-                <div className="font-orbitron text-[10px] text-white/40 tracking-widest mt-1">
+                <div className="font-orbitron text-[16px] text-white/40 tracking-widest mt-1">
                   {stat.label}
                 </div>
               </div>
@@ -158,7 +158,7 @@ export default function S1_Hero({ isEngineOn, speed, onStartEngine }: HeroProps)
 
           {/* Neon Ring Decoration */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-[100px] bg-neon-blue/10 blur-3xl rounded-full" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-[150px] bg-neon-blue/10 blur-3xl rounded-full" />
           </div>
         </motion.div>
       </div>

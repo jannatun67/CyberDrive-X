@@ -14,7 +14,7 @@ export default function S7_Footer() {
   return (
     <footer id="footer" className="relative pt-24 pb-8">
       {/* ── CTA Banner ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+      <div className="mb-20">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ export default function S7_Footer() {
       </div>
 
       {/* ── Footer Content ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div>
         <div className="border-t border-white/5 pt-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 

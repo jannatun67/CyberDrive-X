@@ -16,7 +16,7 @@ export default function S6_Specs() {
       {/* Background */}
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-neon-pink/5 rounded-full blur-3xl -translate-y-1/2" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative">
         {/* ── Section Header ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

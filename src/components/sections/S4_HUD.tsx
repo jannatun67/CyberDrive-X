@@ -6,7 +6,8 @@ import Speedometer from "@/components/ui/Speedometer";
 import GearIndicator from "@/components/ui/GearIndicator";
 import NitroBar from "@/components/ui/NitroBar";
 import NeonButton from "@/components/ui/NeonButton";
-import { GameState } from "@/types";
+import MobileControls from "@/components/ui/MobileControls";
+import { GameState, ControlKeys } from "@/types";
 
 /* ══════════════════════════════════════════════
    Section 4: HUD (Heads-Up Display)
@@ -21,9 +22,10 @@ import { GameState } from "@/types";
 interface HUDProps {
   gameState: GameState;
   onToggleEngine: () => void;
+  controlsRef: React.RefObject<ControlKeys | null>;
 }
 
-export default function S4_HUD({ gameState, onToggleEngine }: HUDProps) {
+export default function S4_HUD({ gameState, onToggleEngine, controlsRef }: HUDProps) {
   const { speed, gear, nitro, rpm, isEngineOn } = gameState;
 
   return (
@@ -34,7 +36,7 @@ export default function S4_HUD({ gameState, onToggleEngine }: HUDProps) {
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-neon-purple/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative">
         {/* ── Section Header ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -151,6 +153,9 @@ export default function S4_HUD({ gameState, onToggleEngine }: HUDProps) {
             </div>
           </GlassCard>
         </div>
+
+        {/* Mobile Controls */}
+        <MobileControls controlsRef={controlsRef} isEngineOn={isEngineOn} />
       </div>
     </section>
   );

@@ -31,43 +31,49 @@ export const FEATURES: FeatureItem[] = [
   {
     id: 1,
     title: "Real-Time 3D",
-    description: "Experience photorealistic 3D car models rendered in real-time using WebGL and Three.js technology.",
-    icon: "🎮",
+    description:
+      "Experience photorealistic 3D car models rendered in real-time using WebGL and Three.js technology.",
+    image: "/Real-Time-3D.gif",
     gradient: "from-neon-blue to-neon-purple",
   },
   {
     id: 2,
     title: "Physics Engine",
-    description: "Advanced physics simulation for realistic car handling, drift mechanics, and collision detection.",
-    icon: "⚡",
+    description:
+      "Advanced physics simulation for realistic car handling, drift mechanics, and collision detection.",
+    image: "/Physics-Engine.gif",
     gradient: "from-neon-purple to-neon-pink",
   },
   {
     id: 3,
     title: "Custom Controls",
-    description: "Fully remappable WASD/Arrow key controls with gamepad support for the ultimate driving experience.",
-    icon: "🕹️",
+    description:
+      "Fully remappable WASD/Arrow key controls with gamepad support for the ultimate driving experience.",
+    image: "/Custom-Controls.gif",
     gradient: "from-neon-pink to-neon-orange",
   },
   {
     id: 4,
     title: "Nitro Boost",
-    description: "Activate nitro for an adrenaline rush of speed with stunning visual effects and screen shake.",
-    icon: "🔥",
+    description:
+      "Activate nitro for an adrenaline rush of speed with stunning visual effects and screen shake.",
+    image: "/Nitro-Boost.gif",
     gradient: "from-neon-orange to-neon-green",
   },
   {
     id: 5,
     title: "Multi-Track",
-    description: "Race through 12+ unique tracks from neon cityscapes to mountain roads and desert highways.",
-    icon: "🏁",
+    description:
+      "Race through 12+ unique tracks from neon cityscapes to mountain roads and desert highways.",
+    image: "/Multi-Track.gif",
     gradient: "from-neon-green to-neon-blue",
   },
   {
     id: 6,
     title: "Leaderboards",
-    description: "Compete globally with real-time leaderboards and ghost race replays from top players.",
-    icon: "🏆",
+    description:
+      "Compete globally with real-time leaderboards and ghost race replays from top players.",
+    image: "/Leaderboards.gif",
     gradient: "from-neon-blue to-neon-pink",
   },
 ];

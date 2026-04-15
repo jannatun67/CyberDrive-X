@@ -1,5 +1,56 @@
 
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* ── Custom Color Palette: Neon Gaming Theme ── */
+  --color-neon-blue: #00f0ff;
+  --color-neon-purple: #b000ff;
+  --color-neon-pink: #ff00e5;
+  --color-neon-green: #39ff14;
+  --color-neon-orange: #ff6600;
+  
+  --color-dark-900: #0a0a0f;
+  --color-dark-800: #12121a;
+  --color-dark-700: #1a1a2e;
+  --color-dark-600: #252540;
+
+  /* ── Font Family ── */
+  --font-orbitron: var(--font-orbitron);
+  --font-sans: var(--font-inter);
+
+  /* ── Custom Animations ── */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-neon: pulseNeon 2s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-slide-up: slideUp 0.8s ease-out;
+  --animate-spin-slow: spin 20s linear infinite;
+
+  /* ── Box Shadows for Neon Effects ── */
+  --shadow-neon-blue: 0 0 15px rgba(0, 240, 255, 0.5), 0 0 30px rgba(0, 240, 255, 0.3);
+  --shadow-neon-purple: 0 0 15px rgba(176, 0, 255, 0.5), 0 0 30px rgba(176, 0, 255, 0.3);
+  --shadow-neon-green: 0 0 15px rgba(57, 255, 20, 0.5), 0 0 30px rgba(57, 255, 20, 0.3);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulseNeon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff; }
+  100% { box-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff, 0 0 60px #00f0ff; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
 
 /* ══════════════════════════════════════════════
    CUSTOM CSS VARIABLES & BASE STYLES
@@ -12,16 +63,66 @@
   --dark-bg: #0a0a0f;
 }
 
-/* ── Smooth Scrolling ── */
 html {
   scroll-behavior: smooth;
 }
 
-/* ── Base Body Styling ── */
 body {
   background-color: var(--dark-bg);
   color: white;
   overflow-x: hidden;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* ── Max Width Container ── */
+.container {
+  width: 100%;
+  max-width: 1950px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* ── Responsive Breakpoints ── */
+@media (max-width: 1536px) {
+  body { font-size: 17px; }
+  p { font-size: 17px; }
+  .container { max-width: 1536px; }
+}
+
+@media (max-width: 1280px) {
+  body { font-size: 16px; }
+  p { font-size: 16px; }
+  .container { max-width: 1280px; }
+}
+
+@media (max-width: 1024px) {
+  body { font-size: 15px; }
+  p { font-size: 15px; }
+  .container { padding-left: 1.25rem; padding-right: 1.25rem; max-width: 1024px; }
+}
+
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+  p { font-size: 14px; }
+  .container { padding-left: 1rem; padding-right: 1rem; max-width: 768px; }
+}
+
+@media (max-width: 640px) {
+  .container { max-width: 640px; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 13px; }
+  p { font-size: 13px; }
+  .container { max-width: 480px; }
 }
 
 /* ── Custom Scrollbar ── */

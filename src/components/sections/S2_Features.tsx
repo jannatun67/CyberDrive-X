@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import GlassCard from "@/components/ui/GlassCard";
 import { FEATURES } from "@/lib/constants";
 
@@ -18,7 +19,7 @@ export default function S2_Features() {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-neon-blue/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-neon-purple/5 rounded-full blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative">
         {/* ── Section Header ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -27,14 +28,14 @@ export default function S2_Features() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="font-orbitron text-xs tracking-[0.3em] text-neon-purple uppercase">
+          <span className="font-orbitron text-[18px] tracking-[0.3em] text-neon-purple uppercase">
             What We Offer
           </span>
           <h2 className="font-orbitron text-3xl sm:text-4xl lg:text-5xl font-black mt-4 mb-6">
             <span className="text-white">POWERED BY </span>
             <span className="gradient-text">INNOVATION</span>
           </h2>
-          <p className="text-white/50 max-w-2xl mx-auto">
+          <p className="text-white/50 max-w-2xl mx-auto text-[20px]">
             Experience cutting-edge technology that pushes the boundaries of web-based 3D racing.
           </p>
         </motion.div>
@@ -43,19 +44,27 @@ export default function S2_Features() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {FEATURES.map((feature, index) => (
             <GlassCard key={feature.id} delay={index * 0.1} className="group">
-              {/* Icon */}
-              <div className="text-4xl mb-4">{feature.icon}</div>
+              {/* Image */}
+              <div className="w-full h-60 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src={feature.image}
+                  alt={feature.title}
+                  width={400}
+                  height={240}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
 
               {/* Gradient Line */}
-              <div className={`w-12 h-1 rounded-full bg-gradient-to-r ${feature.gradient} mb-4`} />
+              <div className={`w-12 h-1 rounded-full bg-linear-to-r ${feature.gradient} mb-4`} />
 
               {/* Title */}
-              <h3 className="font-orbitron text-lg font-bold text-white mb-3 group-hover:text-neon-blue transition-colors">
+              <h3 className="font-orbitron text-[22px] font-bold text-white mb-3 group-hover:text-neon-blue transition-colors">
                 {feature.title}
               </h3>
 
               {/* Description */}
-              <p className="text-white/50 text-sm leading-relaxed">
+              <p className="text-white/50 text-[20px] leading-relaxed">
                 {feature.description}
               </p>
             </GlassCard>

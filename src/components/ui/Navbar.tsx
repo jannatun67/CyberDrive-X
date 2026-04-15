@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NAV_LINKS } from "@/lib/constants";
 
@@ -9,15 +9,31 @@ import { NAV_LINKS } from "@/lib/constants";
    ══════════════════════════════════════════════ */
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.scrollY > 50;
+    }
+    return false;
+  });
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
-  /** Track scroll position for navbar background */
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  /** Scroll handler (optimized) */
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 50);
   }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
+
+  /** close menu on route click / UX improvement */
+  const handleLinkClick = () => {
+    setIsMobileOpen(false);
+  };
 
   return (
     <motion.nav
@@ -29,12 +45,12 @@ export default function Navbar() {
         ${isScrolled ? "glass-strong shadow-lg" : "bg-transparent"}
       `}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <div className="flex items-center justify-between h-16 md:h-20">
+          
           {/* ── Logo ── */}
           <a href="#hero" className="flex items-center gap-2">
-            <span className="text-2xl">🏎️</span>
-            <span className="font-orbitron font-bold text-lg gradient-text hidden sm:block">
+            <span className="font-orbitron font-bold text-[24px] gradient-text hidden sm:block">
               VELOCITY
             </span>
           </a>
@@ -46,7 +62,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className="
-                  font-orbitron text-xs tracking-wider text-white/60
+                  font-orbitron text-[18px] tracking-wider text-white/60
                   hover:text-neon-blue transition-colors duration-300
                   px-3 py-2 rounded-lg hover:bg-white/5
                 "
@@ -61,9 +77,9 @@ export default function Navbar() {
             <a
               href="#hud"
               className="
-                font-orbitron text-xs font-bold tracking-wider
+                font-orbitron text-[18px] font-bold tracking-wider
                 text-neon-blue border border-neon-blue/50 rounded-lg
-                px-4 py-2 hover:bg-neon-blue/10 transition-all duration-300
+                px-6 py-4 hover:bg-neon-blue/10 transition-all duration-300
                 hover:shadow-neon-blue
               "
             >
@@ -73,7 +89,7 @@ export default function Navbar() {
 
           {/* ── Mobile Hamburger ── */}
           <button
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
+            onClick={() => setIsMobileOpen((prev) => !prev)}
             className="md:hidden flex flex-col gap-1.5 p-2"
             aria-label="Toggle menu"
           >
@@ -103,6 +119,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25 }}
             className="md:hidden glass-strong border-t border-white/10 overflow-hidden"
           >
             <div className="px-4 py-4 flex flex-col gap-2">
@@ -110,7 +127,7 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setIsMobileOpen(false)}
+                  onClick={handleLinkClick}
                   className="
                     font-orbitron text-sm tracking-wider text-white/70
                     hover:text-neon-blue transition-colors duration-300

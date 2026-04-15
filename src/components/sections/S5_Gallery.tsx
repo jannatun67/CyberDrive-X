@@ -27,7 +27,7 @@ export default function S5_Gallery() {
       {/* Background */}
       <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-neon-blue/20 to-transparent" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative">
         {/* ── Section Header ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -26,7 +26,7 @@ export interface FeatureItem {
   id: number;
   title: string;
   description: string;
-  icon: string;  // Emoji icon (no SVG as per requirement)
+  image: string;  // Image URL
   gradient: string;
 }
 
