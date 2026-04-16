@@ -25,7 +25,7 @@ export default function S6_Specs() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="font-orbitron text-xs tracking-[0.3em] text-neon-pink uppercase">
+          <span className="font-orbitron text-[20px] tracking-[0.3em] text-neon-pink uppercase">
             Under The Hood
           </span>
           <h2 className="font-orbitron text-3xl sm:text-4xl lg:text-5xl font-black mt-4 mb-6">
@@ -49,14 +49,14 @@ export default function S6_Specs() {
               >
                 {/* Label & Value */}
                 <div className="flex justify-between items-baseline mb-2">
-                  <span className="font-orbitron text-sm text-white/70 tracking-wider">
+                  <span className="font-orbitron text-[18px] text-white/70 tracking-wider">
                     {spec.label}
                   </span>
                   <div className="flex items-baseline gap-1">
-                    <span className="font-orbitron text-xl font-bold text-neon-blue">
+                    <span className="font-orbitron text-[22px] font-bold text-neon-blue">
                       {spec.value}
                     </span>
-                    <span className="font-orbitron text-xs text-white/40">{spec.unit}</span>
+                    <span className="font-orbitron text-[16px] text-white/40">{spec.unit}</span>
                   </div>
                 </div>
 
@@ -82,13 +82,13 @@ export default function S6_Specs() {
           <GlassCard hover={false} className="p-8">
             {/* Car Name */}
             <div className="mb-8">
-              <span className="font-orbitron text-xs text-neon-purple tracking-widest uppercase">
+              <span className="font-orbitron text-[18px] text-neon-purple tracking-widest uppercase">
                 Vehicle Profile
               </span>
-              <h3 className="font-orbitron text-2xl font-black text-white mt-2">
+              <h3 className="font-orbitron text-3xl font-black text-white mt-2">
                 VELOCITY <span className="text-neon-blue">GT-R</span>
               </h3>
-              <p className="text-white/40 text-sm mt-2 leading-relaxed">
+              <p className="text-white/40 text-[20px] mt-2 leading-relaxed">
                 The Velocity GT-R is engineered for dominance. With a twin-turbo V8 producing
                 720 HP and an advanced aerodynamics package, it delivers unmatched performance
                 on any track.
@@ -106,9 +106,9 @@ export default function S6_Specs() {
                 { icon: "🪶", label: "Body", value: "Carbon Fiber" },
               ].map((item) => (
                 <div key={item.label} className="glass p-3 rounded-lg text-center">
-                  <div className="text-xl mb-1">{item.icon}</div>
-                  <div className="font-orbitron text-xs text-neon-blue font-bold">{item.value}</div>
-                  <div className="font-orbitron text-[9px] text-white/30 tracking-wider mt-1">
+                  <div className="text-[24px] mb-1">{item.icon}</div>
+                  <div className="font-orbitron text-[18px] text-neon-blue font-bold">{item.value}</div>
+                  <div className="font-orbitron text-[12px] text-white/30 tracking-wider mt-1">
                     {item.label}
                   </div>
                 </div>
