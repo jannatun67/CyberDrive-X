@@ -18,7 +18,7 @@ export default function GearIndicator({ gear, rpm }: GearIndicatorProps) {
   return (
     <div className="flex flex-col items-center gap-3">
       {/* Gear Label */}
-      <span className="font-orbitron text-xs text-white/50 tracking-widest uppercase">
+      <span className="font-orbitron text-[20px] text-white/50 tracking-widest uppercase">
         Gear
       </span>
 
@@ -56,7 +56,7 @@ export default function GearIndicator({ gear, rpm }: GearIndicatorProps) {
 
       {/* RPM Number */}
       <span
-        className={`font-orbitron text-xs ${
+        className={`font-orbitron text-[20px] ${
           isRedline ? "text-neon-pink" : "text-white/40"
         }`}
       >

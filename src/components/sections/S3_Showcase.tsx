@@ -39,14 +39,14 @@ export default function S3_Showcase({ isEngineOn, speed }: ShowcaseProps) {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="font-orbitron text-xs tracking-[0.3em] text-neon-blue uppercase">
+          <span className="font-orbitron text-[20px] tracking-[0.3em] text-neon-blue uppercase">
             Interactive 3D
           </span>
           <h2 className="font-orbitron text-3xl sm:text-4xl lg:text-5xl font-black mt-4 mb-6">
             <span className="text-white">360° </span>
             <span className="gradient-text">SHOWCASE</span>
           </h2>
-          <p className="text-white/50 max-w-xl mx-auto">
+          <p className="text-white/50 max-w-xl mx-auto text-[20px]">
             Drag to rotate. Scroll to zoom. Experience every angle of this machine.
           </p>
         </motion.div>
@@ -57,7 +57,7 @@ export default function S3_Showcase({ isEngineOn, speed }: ShowcaseProps) {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] glass border-glow rounded-2xl overflow-hidden"
+          className="relative w-full h-[400px] sm:h-[500px] lg:h-[650px] glass border-glow rounded-2xl overflow-hidden"
         >
           <Experience isEngineOn={isEngineOn} speed={speed} />
 
@@ -78,7 +78,7 @@ export default function S3_Showcase({ isEngineOn, speed }: ShowcaseProps) {
 
           {/* Control Hint */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 glass px-4 py-2 rounded-full">
-            <span className="font-orbitron text-[10px] text-white/50 tracking-widest">
+            <span className="font-orbitron text-[16px] text-white/50 tracking-widest">
               🖱️ DRAG TO ROTATE &nbsp;&bull;&nbsp; 🔍 SCROLL TO ZOOM
             </span>
           </div>

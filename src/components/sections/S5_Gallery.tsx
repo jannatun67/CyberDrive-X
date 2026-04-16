@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import GlassCard from "@/components/ui/GlassCard";
 import { GALLERY_ITEMS } from "@/lib/constants";
 
@@ -36,7 +37,7 @@ export default function S5_Gallery() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="font-orbitron text-xs tracking-[0.3em] text-neon-orange uppercase">
+          <span className="font-orbitron text-[20px] tracking-[0.3em] text-neon-orange uppercase">
             Explore Tracks
           </span>
           <h2 className="font-orbitron text-3xl sm:text-4xl lg:text-5xl font-black mt-4 mb-6">
@@ -58,7 +59,7 @@ export default function S5_Gallery() {
               key={filter}
               onClick={() => setActiveFilter(filter)}
               className={`
-                font-orbitron text-xs tracking-wider px-4 py-2 rounded-lg
+                font-orbitron text-[18px] tracking-wider px-4 py-2 rounded-lg
                 border transition-all duration-300
                 ${activeFilter === filter
                   ? "border-neon-blue bg-neon-blue/10 text-neon-blue shadow-neon-blue"
@@ -83,32 +84,35 @@ export default function S5_Gallery() {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 <GlassCard className="group overflow-hidden">
-                  {/* Image Area (Emoji placeholder) */}
-                  <div className="relative w-full h-48 bg-dark-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                    <span className="text-6xl group-hover:scale-125 transition-transform duration-500">
-                      {item.image}
-                    </span>
+                  {/* Image Area */}
+                  <div className="relative w-full h-48 bg-dark-700 rounded-lg mb-4 overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
 
                     {/* Overlay on hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                      <span className="font-orbitron text-xs text-neon-blue tracking-wider">
+                      <span className="font-orbitron text-[20px] text-neon-blue tracking-wider">
                         VIEW TRACK →
                       </span>
                     </div>
 
                     {/* Tag Badge */}
                     <div className="absolute top-3 right-3 glass px-3 py-1 rounded-full">
-                      <span className="font-orbitron text-[10px] text-neon-purple tracking-wider">
+                      <span className="font-orbitron text-[16px] text-white tracking-wider">
                         {item.tag}
                       </span>
                     </div>
                   </div>
 
                   {/* Text */}
-                  <h3 className="font-orbitron text-base font-bold text-white group-hover:text-neon-blue transition-colors">
+                  <h3 className="font-orbitron text-[17px] font-bold text-white group-hover:text-neon-blue transition-colors">
                     {item.title}
                   </h3>
-                  <p className="font-orbitron text-xs text-white/40 mt-1">
+                  <p className="font-orbitron text-[14px] text-white/40 mt-1">
                     {item.subtitle}
                   </p>
                 </GlassCard>

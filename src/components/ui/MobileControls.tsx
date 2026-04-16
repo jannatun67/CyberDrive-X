@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ControlKeys } from "@/types";
 
@@ -12,7 +12,7 @@ import { ControlKeys } from "@/types";
    ══════════════════════════════════════════════ */
 
 interface MobileControlsProps {
-  controlsRef: React.RefObject<ControlKeys | null>;
+  controlsRef: React.RefObject<ControlKeys>;
   isEngineOn: boolean;
 }
 
@@ -24,13 +24,17 @@ export default function MobileControls({ controlsRef, isEngineOn }: MobileContro
   /** Handle touch start on the virtual joystick */
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     const touch = e.touches[0];
-    setTouchStart({ x: touch.clientX, y: touch.clientY });
+    const rect = joystickRef.current?.getBoundingClientRect();
+    const centerX = rect ? rect.left + rect.width / 2 : touch.clientX;
+    const centerY = rect ? rect.top + rect.height / 2 : touch.clientY;
+
+    setTouchStart({ x: centerX, y: centerY });
     setJoystickPos({ x: 0, y: 0 });
   }, []);
 
   /** Handle touch move on the virtual joystick */
   const handleTouchMove = useCallback((e: React.TouchEvent) => {
-    if (!touchStart || !controlsRef.current) return;
+    if (!touchStart) return;
 
     const touch = e.touches[0];
     const deltaX = touch.clientX - touchStart.x;
@@ -75,19 +79,27 @@ export default function MobileControls({ controlsRef, isEngineOn }: MobileContro
   const handleTouchEnd = useCallback(() => {
     setTouchStart(null);
     setJoystickPos({ x: 0, y: 0 });
-    if (controlsRef.current) {
-      controlsRef.current.left = false;
-      controlsRef.current.right = false;
-      controlsRef.current.forward = false;
-      controlsRef.current.backward = false;
-    }
+    controlsRef.current.left = false;
+    controlsRef.current.right = false;
+    controlsRef.current.forward = false;
+    controlsRef.current.backward = false;
+  }, [controlsRef]);
+
+  useEffect(() => {
+    const controls = controlsRef.current;
+    return () => {
+      controls.left = false;
+      controls.right = false;
+      controls.forward = false;
+      controls.backward = false;
+      controls.nitro = false;
+      controls.brake = false;
+    };
   }, [controlsRef]);
 
   /** Handle button press */
   const handleButtonPress = useCallback((action: keyof ControlKeys, pressed: boolean) => {
-    if (controlsRef.current) {
-      controlsRef.current[action] = pressed;
-    }
+    controlsRef.current[action] = pressed;
   }, [controlsRef]);
 
   if (!isEngineOn) return null;
@@ -106,6 +118,8 @@ export default function MobileControls({ controlsRef, isEngineOn }: MobileContro
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
+          onTouchCancel={handleTouchEnd}
+          style={{ touchAction: "none" }}
         >
           <div className="w-16 h-16 bg-neon-blue/20 rounded-full flex items-center justify-center">
             <span className="text-neon-blue text-xs">🎮</span>
@@ -123,9 +137,14 @@ export default function MobileControls({ controlsRef, isEngineOn }: MobileContro
           {/* Nitro Button */}
           <motion.button
             className="w-14 h-14 bg-neon-purple/80 backdrop-blur-sm rounded-full border border-neon-purple/50 flex items-center justify-center text-neon-purple font-bold text-lg shadow-lg active:scale-95 transition-transform"
-            onTouchStart={() => handleButtonPress("nitro", true)}
+            onTouchStart={(e) => {
+              e.preventDefault();
+              handleButtonPress("nitro", true);
+            }}
             onTouchEnd={() => handleButtonPress("nitro", false)}
+            onTouchCancel={() => handleButtonPress("nitro", false)}
             whileTap={{ scale: 0.9 }}
+            style={{ touchAction: "none" }}
           >
             ⚡
           </motion.button>
@@ -133,9 +152,14 @@ export default function MobileControls({ controlsRef, isEngineOn }: MobileContro
           {/* Brake Button */}
           <motion.button
             className="w-14 h-14 bg-red-500/80 backdrop-blur-sm rounded-full border border-red-500/50 flex items-center justify-center text-white font-bold text-lg shadow-lg active:scale-95 transition-transform"
-            onTouchStart={() => handleButtonPress("brake", true)}
+            onTouchStart={(e) => {
+              e.preventDefault();
+              handleButtonPress("brake", true);
+            }}
             onTouchEnd={() => handleButtonPress("brake", false)}
+            onTouchCancel={() => handleButtonPress("brake", false)}
             whileTap={{ scale: 0.9 }}
+            style={{ touchAction: "none" }}
           >
             🛑
           </motion.button>

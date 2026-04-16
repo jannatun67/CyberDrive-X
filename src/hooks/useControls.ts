@@ -61,17 +61,26 @@ export function useControls() {
     controlsRef.current = { ...DEFAULT_CONTROLS };
   }, []);
 
+  /** Handle visibility change — reset controls when tab hidden */
+  const handleVisibility = useCallback(() => {
+    if (document.hidden) {
+      controlsRef.current = { ...DEFAULT_CONTROLS };
+    }
+  }, []);
+
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
     window.addEventListener("blur", handleBlur);
+    document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
       window.removeEventListener("blur", handleBlur);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
-  }, [handleKeyDown, handleKeyUp, handleBlur]);
+  }, [handleKeyDown, handleKeyUp, handleBlur, handleVisibility]);
 
   return controlsRef;
 }

@@ -28,7 +28,7 @@ interface GameContextType {
   /** Current game state (speed, gear, nitro, etc.) */
   gameState: GameState;
   /** Reference to current keyboard controls */
-  controlsRef: React.RefObject<ControlKeys | null>;
+  controlsRef: React.RefObject<ControlKeys>;
   /** Toggle the engine on/off */
   toggleEngine: () => void;
   /** Is the car currently accelerating? */
@@ -79,15 +79,13 @@ export default function GameProvider({ children }: GameProviderProps) {
       isNitroActive,
       speedPercent,
     }),
-    // gameState changes every frame when active, so we track specific fields
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [
-      gameState.speed,
-      gameState.gear,
-      gameState.nitro,
-      gameState.rpm,
-      gameState.isEngineOn,
+      gameState,
+      controlsRef,
       toggleEngine,
+      isAccelerating,
+      isNitroActive,
+      speedPercent,
     ]
   );
 

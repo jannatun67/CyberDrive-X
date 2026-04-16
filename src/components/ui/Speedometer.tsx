@@ -22,7 +22,7 @@ export default function Speedometer({ speed, maxSpeed = 320 }: SpeedometerProps)
       </div>
 
       {/* Unit */}
-      <span className="font-orbitron text-xs text-white/50 tracking-widest uppercase">
+      <span className="font-orbitron text-[20px] text-white/50 tracking-widest uppercase">
         km/h
       </span>
 

@@ -13,7 +13,7 @@ const INITIAL_STATE: GameState = {
   isEngineOn: false,
 };
 
-export function useGameState(controlsRef: React.RefObject<ControlKeys | null>) {
+export function useGameState(controlsRef: React.RefObject<ControlKeys>) {
   const [gameState, setGameState] = useState<GameState>(INITIAL_STATE);
 
   const stateRef = useRef<GameState>(INITIAL_STATE);
@@ -47,29 +47,29 @@ export function useGameState(controlsRef: React.RefObject<ControlKeys | null>) {
 
     // Acceleration
     if (controls.forward) {
-      const acceleration = controls.nitro && nitro > 0 ? 1.2 : 0.5;
-      speed = lerp(speed, 320, 0.01 * acceleration);
+      const acceleration = controls.nitro && nitro > 0 ? 2.0 : 1.0;
+      speed = lerp(speed, 320, 0.02 * acceleration);
     }
 
     // Reverse / Brake
     if (controls.backward) {
-      speed = lerp(speed, 0, 0.03);
+      speed = lerp(speed, 0, 0.05);
     }
 
     if (controls.brake) {
-      speed = lerp(speed, 0, 0.05);
+      speed = lerp(speed, 0, 0.08);
     }
 
     // Natural slow
     if (!controls.forward && !controls.backward && !controls.brake) {
-      speed = lerp(speed, 0, 0.005);
+      speed = lerp(speed, 0, 0.01);
     }
 
     // Nitro
     if (controls.nitro && controls.forward && nitro > 0) {
-      nitro = clamp(nitro - 0.3, 0, 100);
+      nitro = clamp(nitro - 0.5, 0, 100);
     } else if (nitro < 100) {
-      nitro = clamp(nitro + 0.05, 0, 100);
+      nitro = clamp(nitro + 0.1, 0, 100);
     }
 
     speed = clamp(speed, 0, 320);
@@ -99,20 +99,39 @@ export function useGameState(controlsRef: React.RefObject<ControlKeys | null>) {
     gameLoopRef.current = gameLoop;
   }, [gameLoop]);
 
-  /** Toggle engine */
-  const toggleEngine = useCallback(() => {
+  /** Reset state when engine turns off */
+  const resetState = useCallback(() => {
     stateRef.current = {
       ...stateRef.current,
-      isEngineOn: !stateRef.current.isEngineOn,
+      speed: 0,
+      rpm: 0,
+      gear: 1,
+      nitro: 100,
     };
     setGameState({ ...stateRef.current });
   }, []);
 
-  /** Start loop */
+  /** Toggle engine */
+  const toggleEngine = useCallback(() => {
+    const wasOn = stateRef.current.isEngineOn;
+    const willBeOn = !wasOn;
+    
+    stateRef.current = {
+      ...stateRef.current,
+      isEngineOn: willBeOn,
+    };
+    setGameState({ ...stateRef.current });
+    
+    if (wasOn && !willBeOn) {
+      resetState();
+    }
+  }, [resetState]);
+
+  /** Start game loop on mount, stop on unmount */
   useEffect(() => {
     rafRef.current = requestAnimationFrame(gameLoopRef.current);
     return () => cancelAnimationFrame(rafRef.current);
   }, []);
 
-  return { gameState, toggleEngine };
+  return { gameState, toggleEngine, resetState };
 }
