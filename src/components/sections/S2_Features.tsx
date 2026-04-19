@@ -14,7 +14,7 @@ import { FEATURES } from "@/lib/constants";
 
 export default function S2_Features() {
   return (
-    <section id="features" className="relative py-24 sm:py-32">
+    <section id="features" className="relative w-full py-24 sm:py-32">
       {/* Background Glow */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-neon-blue/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-neon-purple/5 rounded-full blur-3xl" />
@@ -41,7 +41,7 @@ export default function S2_Features() {
         </motion.div>
 
         {/* ── Feature Grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {FEATURES.map((feature, index) => (
             <GlassCard key={feature.id} delay={index * 0.1} className="group">
               {/* Image */}
@@ -49,7 +49,7 @@ export default function S2_Features() {
                 <Image
                   src={feature.image}
                   alt={feature.title}
-                  width={400}
+                  width={300}
                   height={240}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />

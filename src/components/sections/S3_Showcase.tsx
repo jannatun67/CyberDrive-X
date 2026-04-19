@@ -26,7 +26,7 @@ interface ShowcaseProps {
 
 export default function S3_Showcase({ isEngineOn, speed }: ShowcaseProps) {
   return (
-    <section id="showcase" className="relative py-24 sm:py-32">
+    <section id="showcase" className="relative w-full py-24 sm:py-32">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon-purple/5 rounded-full blur-3xl" />
 

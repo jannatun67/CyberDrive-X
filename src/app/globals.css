@@ -53,15 +53,8 @@
 }
 
 /* ══════════════════════════════════════════════
-   CUSTOM CSS VARIABLES & BASE STYLES
-   ══════════════════════════════════════════════ */
-
-:root {
-  --neon-blue: #00f0ff;
-  --neon-purple: #b000ff;
-  --neon-pink: #ff00e5;
-  --dark-bg: #0a0a0f;
-}
+    CUSTOM CSS VARIABLES & BASE STYLES
+    ══════════════════════════════════════════════ */
 
 html {
   scroll-behavior: smooth;
@@ -80,10 +73,10 @@ p {
   line-height: 1.7;
 }
 
-/* ── Max Width Container ── */
+/* ── Full Width Container ── */
 .container {
   width: 100%;
-  max-width: 1950px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.5rem;
@@ -94,35 +87,26 @@ p {
 @media (max-width: 1536px) {
   body { font-size: 17px; }
   p { font-size: 17px; }
-  .container { max-width: 1536px; }
 }
 
 @media (max-width: 1280px) {
   body { font-size: 16px; }
   p { font-size: 16px; }
-  .container { max-width: 1280px; }
 }
 
 @media (max-width: 1024px) {
   body { font-size: 15px; }
   p { font-size: 15px; }
-  .container { padding-left: 1.25rem; padding-right: 1.25rem; max-width: 1024px; }
 }
 
 @media (max-width: 768px) {
   body { font-size: 14px; }
   p { font-size: 14px; }
-  .container { padding-left: 1rem; padding-right: 1rem; max-width: 768px; }
-}
-
-@media (max-width: 640px) {
-  .container { max-width: 640px; }
 }
 
 @media (max-width: 480px) {
   body { font-size: 13px; }
   p { font-size: 13px; }
-  .container { max-width: 480px; }
 }
 
 /* ── Custom Scrollbar ── */

@@ -12,7 +12,7 @@ import { NAV_LINKS } from "@/lib/constants";
 
 export default function S7_Footer() {
   return (
-    <footer id="footer" className="relative pt-24 pb-8">
+    <footer id="footer" className="relative w-full pt-24 pb-8">
       {/* ── CTA Banner ── */}
       <div className="mb-20">
         <motion.div
@@ -60,10 +60,10 @@ export default function S7_Footer() {
             {/* ── Brand ── */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-2xl">🏎️</span>
-                <span className="font-orbitron font-bold text-xl gradient-text">VELOCITY</span>
+                
+                <span className="font-orbitron font-bold text-2xl gradient-text">VELOCITY</span>
               </div>
-              <p className="text-white/40 text-sm leading-relaxed">
+              <p className="text-white/40 text-[20px] leading-relaxed">
                 A next-generation 3D car racing showcase built with React Three Fiber,
                 Next.js 14, and cutting-edge web technologies.
               </p>
@@ -71,7 +71,7 @@ export default function S7_Footer() {
 
             {/* ── Quick Links ── */}
             <div>
-              <h4 className="font-orbitron text-sm font-bold text-white mb-4 tracking-wider">
+              <h4 className="font-orbitron text-[18px] font-bold text-white mb-4 tracking-wider">
                 QUICK LINKS
               </h4>
               <div className="grid grid-cols-2 gap-2">
@@ -79,7 +79,7 @@ export default function S7_Footer() {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="font-orbitron text-xs text-white/40 hover:text-neon-blue transition-colors py-1"
+                    className="font-orbitron text-[16px] text-white/40 hover:text-neon-blue transition-colors py-1"
                   >
                     {link.label}
                   </a>
@@ -89,7 +89,7 @@ export default function S7_Footer() {
 
             {/* ── Tech Stack ── */}
             <div>
-              <h4 className="font-orbitron text-sm font-bold text-white mb-4 tracking-wider">
+              <h4 className="font-orbitron text-[18px] font-bold text-white mb-4 tracking-wider">
                 BUILT WITH
               </h4>
               <div className="flex flex-wrap gap-2">
@@ -103,7 +103,7 @@ export default function S7_Footer() {
                 ].map((tech) => (
                   <span
                     key={tech}
-                    className="font-orbitron text-[10px] text-white/30 bg-dark-700 px-3 py-1.5 rounded-full border border-white/5"
+                    className="font-orbitron text-[16px] text-white/30 bg-dark-700 px-3 py-1.5 rounded-full border border-white/5"
                   >
                     {tech}
                   </span>
@@ -114,7 +114,7 @@ export default function S7_Footer() {
 
           {/* ── Copyright ── */}
           <div className="mt-10 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="font-orbitron text-[10px] text-white/20 tracking-widest">
+            <p className="font-orbitron text-[18px] text-white/20 tracking-widest">
               © 2024 VELOCITY. ALL RIGHTS RESERVED.
             </p>
             <div className="flex gap-6">
@@ -122,7 +122,7 @@ export default function S7_Footer() {
                 <a
                   key={item}
                   href="#"
-                  className="font-orbitron text-[10px] text-white/20 hover:text-white/50 tracking-wider transition-colors"
+                  className="font-orbitron text-[18px] text-white/20 hover:text-white/50 tracking-wider transition-colors"
                 >
                   {item}
                 </a>

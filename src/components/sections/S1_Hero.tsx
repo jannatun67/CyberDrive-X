@@ -37,7 +37,7 @@ export default function S1_Hero({ isEngineOn, speed, onStartEngine }: HeroProps)
   return (
     <section
       id="hero"
-      className="relative w-full h-screen min-h-[700px] overflow-hidden"
+      className="relative max-w-full h-screen min-h-[700px] overflow-hidden"
     >
       {/* ── Video Background ── */}
       <video
@@ -72,8 +72,8 @@ export default function S1_Hero({ isEngineOn, speed, onStartEngine }: HeroProps)
             transition={{ delay: 0.3, duration: 0.6 }}
             className="glass px-4 py-2 mb-6 inline-flex items-center gap-2"
           >
-            <span className="text-sm">⚡</span>
-            <span className="font-orbitron text-[18px] tracking-widest text-neon-blue uppercase">
+            <span className="text-xl">⚡</span>
+            <span className="font-orbitron text-[16px] md:text-[18px] tracking-widest text-neon-blue uppercase">
               Next-Gen Racing Experience
             </span>
           </motion.div>
@@ -148,17 +148,18 @@ export default function S1_Hero({ isEngineOn, speed, onStartEngine }: HeroProps)
         </motion.div>
 
         {/* ── Right: 3D Canvas ── */}
+      
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 1, ease: "easeOut" }}
-          className="flex-1 w-full h-[400px] sm:h-[500px] lg:h-[600px] relative"
+          className="flex-1 max-w-full h-[400px] sm:h-[500px] lg:h-[600px] relative"
         >
           <Experience isEngineOn={isEngineOn} speed={speed} />
 
           {/* Neon Ring Decoration */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-[150px] bg-neon-blue/10 blur-3xl rounded-full" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 md:w-[300px] h-[400px] bg-neon-blue/10 blur-3xl rounded-full" />
           </div>
         </motion.div>
       </div>
@@ -169,7 +170,7 @@ export default function S1_Hero({ isEngineOn, speed, onStartEngine }: HeroProps)
         transition={{ duration: 2, repeat: Infinity }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="font-orbitron text-[10px] text-white/30 tracking-widest">SCROLL</span>
+        <span className="font-orbitron text-[18px] text-white/30 tracking-widest">SCROLL</span>
         <div className="w-0.5 h-8 bg-gradient-to-b from-neon-blue/50 to-transparent" />
       </motion.div>
     </section>

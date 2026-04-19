@@ -24,7 +24,7 @@ export default function S5_Gallery() {
       : GALLERY_ITEMS.filter((item) => item.tag === activeFilter);
 
   return (
-    <section id="gallery" className="relative py-24 sm:py-32">
+    <section id="gallery" className="relative w-full py-24 sm:py-32">
       {/* Background */}
       <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-neon-blue/20 to-transparent" />
 

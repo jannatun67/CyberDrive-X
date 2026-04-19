@@ -24,30 +24,28 @@ export default function Home() {
   return (
     <main className="relative min-h-screen bg-dark-900">
       <Navbar />
-      <div className="container">
-        <S1_Hero
-          isEngineOn={gameState.isEngineOn}
-          speed={gameState.speed}
-          onStartEngine={toggleEngine}
-        />
+      <S1_Hero
+        isEngineOn={gameState.isEngineOn}
+        speed={gameState.speed}
+        onStartEngine={toggleEngine}
+      />
 
-        <S2_Features />
+      <S2_Features />
 
-        <S3_Showcase
-          isEngineOn={gameState.isEngineOn}
-          speed={gameState.speed}
-        />
+      <S3_Showcase
+        isEngineOn={gameState.isEngineOn}
+        speed={gameState.speed}
+      />
 
-        <S4_HUD
-          gameState={gameState}
-          onToggleEngine={toggleEngine}
-          controlsRef={controlsRef}
-        />
+      <S4_HUD
+        gameState={gameState}
+        onToggleEngine={toggleEngine}
+        controlsRef={controlsRef}
+      />
 
-        <S5_Gallery />
-        <S6_Specs />
-        <S7_Footer />
-      </div>
+      <S5_Gallery />
+      <S6_Specs />
+      <S7_Footer />
     </main>
   );
 }
