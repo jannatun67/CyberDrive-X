@@ -38,7 +38,7 @@ export default function Navbar() {
   };
 
   return (
-    <>
+    < div className="">
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -48,7 +48,7 @@ export default function Navbar() {
           ${isScrolled ? "glass-strong shadow-xl backdrop-blur-xl" : "bg-transparent"}
         `}
       >
-        <div className="container">
+        <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between h-16 md:h-20 gap-4">
             <a href="#hero" className="flex items-center gap-2">
               <span className="font-orbitron font-black text-2xl sm:text-2xl gradient-text">
@@ -145,6 +145,6 @@ export default function Navbar() {
           </>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 }

@@ -12,7 +12,7 @@ import { NAV_LINKS } from "@/lib/constants";
 
 export default function S7_Footer() {
   return (
-    <footer id="footer" className="relative w-full pt-24 pb-8">
+    <footer id="footer" className="relative max-w-7xl mx-auto w-full pt-24 pb-8">
       {/* ── CTA Banner ── */}
       <div className="mb-20">
         <motion.div

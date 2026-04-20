@@ -23,7 +23,7 @@ export default function S3_Showcase({ isEngineOn, speed }: ShowcaseProps) {
   return (
     <section
       id="showcase"
-      className="relative w-full py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-10"
+      className="relative  w-full py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-10"
     >
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] lg:w-[600px] h-[300px] sm:h-[450px] lg:h-[600px] bg-neon-purple/5 rounded-full blur-3xl" />
