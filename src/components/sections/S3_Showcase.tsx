@@ -38,7 +38,7 @@ export default function S3_Showcase({ isEngineOn, speed }: ShowcaseProps) {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-12"
         >
-          <span className="font-orbitron text-xs sm:text-sm md:text-base tracking-[0.2em] sm:tracking-[0.3em] text-neon-blue uppercase">
+          <span className="font-orbitron text-[20px]  sm:text-sm md:text-base tracking-[0.2em] sm:tracking-[0.3em] text-neon-blue uppercase">
             Interactive 3D
           </span>
 
