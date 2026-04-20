@@ -12,7 +12,7 @@ import { CAR_SPECS } from "@/lib/constants";
 
 export default function S6_Specs() {
   return (
-    <section id="specs" className="relative max-w-7xl mx-auto w-full py-24 sm:py-32">
+    <section id="specs" className="relative max-w-7xl mx-auto px-5 w-full py-24 sm:py-32">
       {/* Background */}
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-neon-pink/5 rounded-full blur-3xl -translate-y-1/2" />
 

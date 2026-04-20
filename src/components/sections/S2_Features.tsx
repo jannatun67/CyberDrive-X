@@ -13,7 +13,7 @@ export default function S2_Features() {
       <div className="absolute top-0 left-1/4 w-60 sm:w-80 lg:w-96 h-60 sm:h-80 lg:h-96 bg-neon-blue/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-60 sm:w-80 lg:w-96 h-60 sm:h-80 lg:h-96 bg-neon-purple/5 rounded-full blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto"> {/* slightly smaller container */}
+      <div className="relative max-w-7xl mx-auto px-5"> {/* slightly smaller container */}
 
         {/* Header */}
         <motion.div

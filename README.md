@@ -13,10 +13,6 @@
 
 **Immersive 3D car racing showcase with real-time controls, neon gaming UI, and interactive 3D viewer.**
 
-[Live Demo](#) • [Installation](#-installation) • [Features](#-features) • [Controls](#-controls)
-
----
-
 </div>
 
 ## 🌟 Overview
@@ -78,3 +74,5 @@ npm install
 
 # Run dev server
 npm run dev
+
+[Live Demo: https://cyber-drive-x.vercel.app/]

@@ -54,7 +54,7 @@ export default function S4_HUD({ gameState, onToggleEngine, controlsRef }: HUDPr
   ];
 
   return (
-    <section id="hud" className="relative w-full max-w-7xl mx-auto py-24 sm:py-32">
+    <section id="hud" className="relative w-full max-w-7xl mx-auto px-5 py-24 sm:py-32">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-neon-blue/5 rounded-full blur-3xl" />
